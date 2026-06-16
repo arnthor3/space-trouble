@@ -1,0 +1,140 @@
+:root {
+  --btn-bg: rgba(255, 255, 255, 0.12);
+  --btn-border: rgba(255, 255, 255, 0.25);
+  --btn-active-bg: rgba(255, 255, 255, 0.3);
+  --btn-active-border: rgba(255, 255, 255, 0.6);
+  --btn-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#app {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  max-width: 100vw;
+  max-height: 100vh;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+}
+
+/* Touch controls layout */
+.touch-controls {
+  display: none; /* Hidden on desktop by default */
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  padding: 24px;
+  box-sizing: border-box;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+/* Only show touch controls on devices that support touch (pointer: coarse) */
+@media (pointer: coarse) {
+  .touch-controls {
+    display: flex;
+  }
+}
+
+/* For testing/emulation, we can also force display if has class forced-touch */
+.touch-controls.force-show {
+  display: flex;
+}
+
+.control-group {
+  display: flex;
+  gap: 16px;
+  pointer-events: auto;
+}
+
+.control-btn {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 1px solid var(--btn-border);
+  background: var(--btn-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  box-shadow: var(--btn-shadow);
+  transition: transform 0.1s ease, background-color 0.2s ease, border-color 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.control-btn svg {
+  width: 32px;
+  height: 32px;
+  fill: currentColor;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.control-btn:active, .control-btn.active {
+  transform: scale(0.9);
+  background: var(--btn-active-bg);
+  border-color: var(--btn-active-border);
+}
+
+.control-btn:active svg, .control-btn.active svg {
+  opacity: 1;
+}
+
+/* Shoot button styling */
+.control-btn.shoot-btn {
+  width: 76px;
+  height: 76px;
+  background: rgba(255, 68, 68, 0.15);
+  border-color: rgba(255, 68, 68, 0.35);
+}
+
+.control-btn.shoot-btn:active, .control-btn.shoot-btn.active {
+  background: rgba(255, 68, 68, 0.4);
+  border-color: rgba(255, 68, 68, 0.7);
+}
+
+/* Jump button is usually larger or highlighted */
+.control-btn.jump-btn {
+  width: 84px;
+  height: 84px;
+  background: rgba(170, 59, 255, 0.2);
+  border-color: rgba(170, 59, 255, 0.4);
+}
+
+.control-btn.jump-btn:active, .control-btn.jump-btn.active {
+  background: rgba(170, 59, 255, 0.45);
+  border-color: rgba(170, 59, 255, 0.75);
+}
