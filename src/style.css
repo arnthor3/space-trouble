@@ -113,17 +113,30 @@ canvas {
   opacity: 1;
 }
 
-/* Shoot button styling */
-.control-btn.shoot-btn {
+/* Build button styling */
+.control-btn.build-btn {
   width: 76px;
   height: 76px;
-  background: rgba(255, 68, 68, 0.15);
-  border-color: rgba(255, 68, 68, 0.35);
+  background: rgba(46, 204, 113, 0.15);
+  border-color: rgba(46, 204, 113, 0.35);
 }
 
-.control-btn.shoot-btn:active, .control-btn.shoot-btn.active {
-  background: rgba(255, 68, 68, 0.4);
-  border-color: rgba(255, 68, 68, 0.7);
+.control-btn.build-btn:active, .control-btn.build-btn.active {
+  background: rgba(46, 204, 113, 0.4);
+  border-color: rgba(46, 204, 113, 0.7);
+}
+
+/* Down button styling */
+.control-btn.down-btn {
+  width: 76px;
+  height: 76px;
+  background: rgba(241, 196, 15, 0.15);
+  border-color: rgba(241, 196, 15, 0.35);
+}
+
+.control-btn.down-btn:active, .control-btn.down-btn.active {
+  background: rgba(241, 196, 15, 0.4);
+  border-color: rgba(241, 196, 15, 0.7);
 }
 
 /* Jump button is usually larger or highlighted */
